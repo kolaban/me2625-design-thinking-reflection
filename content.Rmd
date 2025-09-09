@@ -41,3 +41,29 @@ output:
 \fancyhead[R]{Design thinking process: Individual reflection - October 4th 2025}
 
 # Design thinking process: Individual reflection
+
+This is a short starter outline aimed at ~500 words. Replace bullets with 1–2 sentence answers.
+
+## Context (2–3 sentences)
+- Brief: what problem were we tackling, and what was my role?
+- Goal: what did I hope to learn or achieve?
+
+## What I Did (3 bullets)
+- Empathize: how I gathered insight (e.g., 3 interviews, 1 observation).
+- Define: one-sentence problem framing I ended up using.
+- Prototype & Test: what I built and who I tested with (2–3 users).
+
+## Key Insight (1–2 bullets)
+- The most important thing I learned and why it mattered.
+
+## Decisions and Rationale (2 bullets)
+- Decision I made, because X evidence suggested Y.
+- What I intentionally did not pursue, and why.
+
+## Outcome (2 bullets)
+- What changed or improved as a result (for user or concept).
+- What remains uncertain or risky.
+
+## Personal Learning (2 bullets)
+- One skill/mindset I strengthened, with a quick example.
+- One thing I will do differently next time (how I’ll know).

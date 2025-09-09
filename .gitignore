@@ -1,0 +1,6 @@
+# Ignore any compiled files
+build/
+
+*.log# pixi environments
+.pixi/*
+!.pixi/config.toml

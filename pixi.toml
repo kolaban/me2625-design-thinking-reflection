@@ -1,0 +1,20 @@
+[workspace]
+channels = ["conda-forge", "r"]
+name = "rmarkdown-template"
+platforms = ["osx-64"]
+version = "0.1.0"
+
+[tasks]
+
+# pixi.toml
+[tasks.render]
+args = [
+    { arg = "input", default = "./content.Rmd" },
+    { arg = "output", default = "./build/" },
+]
+cmd = """Rscript -e "rmarkdown::render('{{ input }}', output_format='all', output_dir ='{{ output }}', params = list(input_document = '{{input}}'))" """
+
+
+[dependencies]
+r-bookdown = ">=0.44,<0.45"
+r-remotes = ">=2.5.0,<3"

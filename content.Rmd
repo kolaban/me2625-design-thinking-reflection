@@ -1,0 +1,71 @@
+---
+title: Rmarkdown Template
+author:
+  - Erik Smith:
+      institute: [Big Company]
+
+institute:
+  - Big Company: Department of Big Companies
+
+header-includes:
+  - \usepackage{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage[left]{lineno}
+  - \doublespacing
+  - \linenumbers
+
+# bibliography: ./bibliography/your_reference_here.json
+# csl: ./bibliography/your_csl_here.csl
+
+mainfont: Times New Roman
+fontsize: 12pt
+
+params:
+  input_document: NA
+
+output:
+  word_document:
+    toc: false
+    number_sections: false
+    reference_docx: "./support-docs/doc_base.docx"
+    pandoc_args:
+      - --lua-filter=lua-filters/scholarly-metadata/scholarly-metadata.lua
+      - --lua-filter=lua-filters/author-info-blocks/author-info-blocks.lua
+  pdf_document:
+    toc: false
+    number_sections: false
+    latex_engine: xelatex
+    pandoc_args:
+      - --lua-filter=lua-filters/scholarly-metadata/scholarly-metadata.lua
+      - --lua-filter=lua-filters/author-info-blocks/author-info-blocks.lua
+---
+
+```{r doc-formatting-load-libraries, echo = F, error=FALSE, warning=FALSE, message=FALSE}
+library(wordcountaddin)
+```
+
+```{r doc-formatting-setup, echo = F, error=FALSE, warning=FALSE, message=FALSE}
+if (is.na(params$input_document) || params$input_document == "NA") {
+  word_count <- NA
+} else {
+  word_count <- wordcountaddin:::word_count(params$input_document)
+}
+```
+
+\pagestyle{fancy}
+
+\fancyhead[R]{Erik Smith}
+
+\fancyhead[L]{Markdown Template - `r Sys.Date()`}
+
+# Rmarkdown Template `r if (!is.na(word_count)) { paste0("Words: ", word_count) }`
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo ligula, dapibus et pulvinar id, consequat pharetra elit. Vivamus ipsum massa, commodo sit amet laoreet non, venenatis at risus. Duis ornare, arcu nec vestibulum aliquam, mauris turpis consequat metus, condimentum dignissim metus libero aliquet ligula. Nulla iaculis, felis vitae ornare fermentum, ante lacus sodales nibh, id pellentesque lacus ipsum quis nunc. Aliquam egestas efficitur eros vel ornare. Sed porta urna libero, non interdum nibh volutpat a. Quisque sed consectetur ligula. In lacinia finibus mi, at tincidunt tortor bibendum sed. Nunc ac arcu nulla. Integer vestibulum consectetur dolor nec laoreet. Pellentesque nibh elit, accumsan a maximus et, congue ut eros. Curabitur id ipsum in quam efficitur hendrerit.
+
+Morbi in euismod dui. Aenean scelerisque commodo nisi, ut commodo ante. Nullam non dapibus ante. Nullam eget ex nec metus auctor porta a eu sapien. Maecenas tempor vehicula purus ut rhoncus. Sed elementum est felis, non auctor augue interdum vitae. Fusce tristique tortor et augue porta vulputate. Praesent justo velit, sollicitudin id bibendum eu, facilisis dapibus ipsum. Vivamus sodales mollis faucibus. Nam placerat sem nec ex rhoncus, at scelerisque ipsum malesuada. Fusce malesuada ultrices ex, vitae suscipit urna finibus id. Suspendisse vulputate est vel lacus tempus, vitae efficitur erat efficitur. Morbi feugiat lobortis nibh, at viverra ex.
+
+Mauris ultricies, sem vitae dictum elementum, elit felis cursus est, nec aliquet lorem lacus vel sapien. Nulla facilisi. Quisque a nisi et risus feugiat molestie quis eget ligula. Etiam consectetur ligula sit amet eros pulvinar sollicitudin at id sapien. Donec eleifend dui libero, eu porta ligula bibendum sed. Duis aliquet quis arcu quis auctor. Pellentesque bibendum sem at est faucibus, sed pulvinar odio ultricies. Etiam odio leo, vulputate eu luctus nec, ullamcorper sit amet arcu. Nulla sed urna risus.
+
+Ut eu est molestie, ultricies eros vel, ullamcorper justo. Nam vitae tellus ultricies tellus sodales convallis sed vestibulum eros. Mauris id lectus et odio scelerisque ultrices. Duis sagittis rhoncus massa eget ultrices. Sed pharetra ipsum eu massa vulputate, non accumsan ipsum rutrum. Phasellus fringilla, ipsum a eleifend facilisis, ante felis semper libero, id vulputate enim turpis at lectus. In nunc est, mollis vitae euismod eu, semper eget elit. Vestibulum ornare vulputate pulvinar. Donec ut nibh tempor, egestas velit ac, efficitur diam. Donec feugiat dignissim ex, id varius tortor molestie nec.
+
+Duis quam enim, cursus vitae velit ut, sollicitudin mollis odio. Nunc ac metus at orci egestas maximus eget pretium nunc. Maecenas nec congue risus, a auctor dolor. Fusce ac suscipit tortor, vel lacinia purus. In iaculis, nisl et laoreet tincidunt, justo mi ultricies lorem, sed cursus tellus erat quis dolor. Duis in viverra sem. Curabitur in enim id justo tincidunt iaculis sed et magna. Mauris a lacinia nibh.
